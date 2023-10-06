@@ -25,6 +25,19 @@ services:
         condition: service_healthy
     networks:
       - leantime
+  
+  samba-dc:
+    privileged: true
+    build: ./samba
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    hostname: ad.leantime.dev
+    expose:
+     - 636
+    environment:
+      - SMB_ADMIN_PASSWORD=admin123!
+    networks:
+      - leantime
   db:
     image: mysql:8.0
     ports:

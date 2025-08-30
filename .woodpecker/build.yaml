@@ -1,6 +1,14 @@
 when:
   - event: push
     branch: "chore/frankenphp-conversion"
+clone:
+  git:
+    image: woodpeckerci/plugin-git
+    settings:
+      depth: 10
+      lfs: false
+      submodule-override:
+        "app/Plugins": https://github.com/Leantime/Plugins.git
 
 steps:
   - name: Build Sales Docs

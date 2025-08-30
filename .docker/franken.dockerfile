@@ -24,5 +24,5 @@ RUN rm -rf /app/*.zip
 RUN rm -rf /app/*.tar.gz
 COPY --from=build /build/target/leantime/ /app
 ENV SERVER_NAME=:8080
-HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=10s --retries=5 \
     CMD  wget --spider http://localhost:8080/index.php > /dev/null 2>&1 || exit 1

@@ -16,7 +16,7 @@ steps:
     settings:
       registry: http://registry.kisoft.me/v2
       repo: registry.kisoft.me/leantime
-      platforms: linux/386,linux/arm/v7,linux/arm64,linux/amd64
+#      platforms: linux/386,linux/arm/v7,linux/arm64,linux/amd64
       dockerfile: .docker/franken.dockerfile
       auto_tag: true
       username:

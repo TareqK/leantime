@@ -17,6 +17,12 @@
 
 	{$CADDY_SERVER_EXTRA_DIRECTIVES}
 
+	log{
+		output stderr
+		format console
+		level ERROR
+	}
+
 	php_server {
 		try_files {path} index.php
 	}

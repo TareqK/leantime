@@ -11,7 +11,7 @@ clone:
         "app/Plugins": https://github.com/Leantime/plugins.git
 
 steps:
-  - name: Build Sales Docs
+  - name: Build Leantime for multiple platforms
     image: woodpeckerci/plugin-docker-buildx:6.0.0
     settings:
       registry: http://registry.kisoft.me/v2

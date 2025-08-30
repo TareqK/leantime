@@ -18,7 +18,7 @@
 	{$CADDY_SERVER_EXTRA_DIRECTIVES}
 
 	log{
-		output stderr
+		output stdout
 		format console
 		level ERROR
 	}

@@ -8,7 +8,7 @@ clone:
       depth: 10
       lfs: false
       submodule-override:
-        "app/Plugins": https://github.com/Leantime/Plugins.git
+        "app/Plugins": https://github.com/leantime/plugins.git
 
 steps:
   - name: Build Sales Docs

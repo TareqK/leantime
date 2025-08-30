@@ -19,6 +19,7 @@ WORKDIR /build
 RUN make install-deps package
 
 FROM base AS runner
-
+RUN rm -rf /app/*.zip
+RUN rm -rf /app/*.tar.gz
 COPY --from=build /build/target/leantime/ /app
 ENV SERVER_NAME=:8080

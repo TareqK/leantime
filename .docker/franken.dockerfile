@@ -20,7 +20,19 @@ WORKDIR /build
 RUN make install-deps package
 
 FROM base AS runner
+
 COPY --from=build /build/target/leantime/ /app
+COPY .docker/Caddyfile /etc/caddy/Caddyfile
+
 RUN rm -rf /app/*.zip
 RUN rm -rf /app/*.tar.gz
+
 HEALTHCHECK  --interval=30s --timeout=10s --retries=5 CMD curl -f http://localhost:2019/metrics || exit 1
+
+ENV SERVER_NAME=:8080
+ENV SERVER_ROOT=/app/public
+
+
+RUN /usr/local/bin/frankenphp && \
+	frankenphp version && \
+	frankenphp build-info

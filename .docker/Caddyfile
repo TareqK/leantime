@@ -1,0 +1,36 @@
+{
+	skip_install_trust
+
+	{$CADDY_GLOBAL_OPTIONS}
+
+	frankenphp {
+		{$FRANKENPHP_CONFIG}
+	}
+
+	log {
+		output stderr
+		format {$CADDY_LOG_FORMAT:console}
+		level {$CADDY_LOG_LEVEL:DEBUG}
+	}
+
+	servers {
+		{$CADDY_GLOBAL_SERVERS_OPTIONS}
+	}
+}
+
+{$CADDY_EXTRA_CONFIG}
+
+{$SERVER_NAME:localhost} {
+
+	root {$SERVER_ROOT:public/}
+	encode zstd br gzip
+
+	{$CADDY_SERVER_EXTRA_DIRECTIVES}
+
+
+	php_server {
+		try_files {path} index.php
+	}
+}
+
+import Caddyfile.d/*.caddyfile

@@ -2,13 +2,19 @@
 	skip_install_trust
 
 	{$CADDY_GLOBAL_OPTIONS}
-	
-	servers{
-		{$CADDY_GLOBAL_SERVERS_OPTIONS}
-	}
 
 	frankenphp {
 		{$FRANKENPHP_CONFIG}
+	}
+
+	log {
+		output stderr
+		format {$CADDY_LOG_FORMAT:console}
+		level {$CADDY_LOG_LEVEL:localhost}
+	}
+
+	servers {
+		{$CADDY_GLOBAL_SERVERS_OPTIONS}
 	}
 }
 
@@ -21,11 +27,6 @@
 
 	{$CADDY_SERVER_EXTRA_DIRECTIVES}
 
-	log{
-		output stdout
-		format console
-		level ERROR
-	}
 
 	php_server {
 		try_files {path} index.php

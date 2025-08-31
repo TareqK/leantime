@@ -1,7 +1,7 @@
 FROM dunglas/frankenphp:1.9.1-php8.3-alpine AS base
 RUN set -eux; \
     install-php-extensions mysqli pdo_mysql bcmath mbstring \
-        exif pcntl gd opcache ldap zip 
+        exif pcntl gd opcache ldap zip redis s3
 RUN apk add curl
 
 RUN rm -rf /tmp/* /var/cache/apk/*

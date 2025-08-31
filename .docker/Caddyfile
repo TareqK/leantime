@@ -10,7 +10,7 @@
 	log {
 		output stderr
 		format {$CADDY_LOG_FORMAT:console}
-		level {$CADDY_LOG_LEVEL:localhost}
+		level {$CADDY_LOG_LEVEL:DEBUG}
 	}
 
 	servers {

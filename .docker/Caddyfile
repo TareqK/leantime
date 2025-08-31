@@ -3,8 +3,8 @@
 
 	{$CADDY_GLOBAL_OPTIONS}
 	
-	server{
-		{$CADDY_GLOBAL_SERVER_OPTIONS}
+	servers{
+		{$CADDY_GLOBAL_SERVERS_OPTIONS}
 	}
 
 	frankenphp {
